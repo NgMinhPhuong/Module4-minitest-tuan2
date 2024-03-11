@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" th:action="@{/create}" th:object="${task}">
+        Name :<input th:field="*{name}"><br>
+        Amount :<input th:field="*{amount}"><br>
+        Note :<input th:field="*{note}"><br>
+        <select name="categoryId">
+            <option th:each="category1 : ${categories}" th:value="${category1.id}" th:text="${category1.name}"></option>
+        </select>
+<!--        <select th:field="*{category}">-->
+<!--            <option th:each="category1 : ${categories}" th:value="${category1.id}" th:text="${category1.name}"></option>-->
+<!--        </select>-->
+        <input type="submit" th:value="Tạo">
+    </form>
+</body>
+</html>
